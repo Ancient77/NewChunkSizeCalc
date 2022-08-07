@@ -1,11 +1,9 @@
 {
-  "name": "ExamplePlugin",
+  "name": "NewChunkSizeCalc",
   "version": "1.0",
-  "description": "Example implementation of a plugin for Lambda.",
-  "url": "https://github.com/lambda-client/ExamplePlugin",
-  "authors": [ "me", "you" ],
-  "main_class": "com.lambda.ExamplePlugin",
-  "min_api_version": "3.0",
-  "mixins": [ "mixins.ExamplePlugin.json" ],
-  "required_plugins": []
+  "description": "Calculate the disk size of the chunks you generated.",
+  "url": "https://github.com/Ancient77/NewChunkSizeCalc",
+  "authors": ["Ancient77"],
+  "main_class": "com.lambda.Plugin",
+  "min_api_version": "3.2"
 }
