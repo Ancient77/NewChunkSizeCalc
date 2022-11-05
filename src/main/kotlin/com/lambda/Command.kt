@@ -3,6 +3,8 @@ package com.lambda
 import com.lambda.client.command.ClientCommand
 import com.lambda.client.util.FolderUtils
 import com.lambda.client.util.text.MessageSendHelper
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
@@ -19,7 +21,9 @@ object Command : ClientCommand(
                 val folderName = mc.currentServerData?.serverName + "-" + mc.currentServerData?.serverIP
                 val rV = File(File(FolderUtils.newChunksFolder), "$folderName/logs").toPath()
                 var lines = 0
-                Files.walk(rV).forEach { item ->
+                withContext(Dispatchers.IO) {
+                    Files.walk(rV)
+                }.forEach { item ->
                     if(item.toString().endsWith(".csv")){
                         val file = File(rV.toString() + "/" + item.fileName.toString())
                         val reader = BufferedReader(FileReader(file))
